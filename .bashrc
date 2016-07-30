@@ -124,3 +124,11 @@ git config --global --bool pull.rebase true
 git config --global alias.s 'status -uno'
 git config --global alias.qp '!git fetch && git stash && git pull && git stash pop'
 git config --global alias.l 'log --pretty=oneline'
+
+prepend_with_git_branch()
+{
+    GIT_BRANCH=$(git branch --no-color 2>/dev/null | sed -n 's|\* \(.*\)|(\1)|p')
+}
+PS1='\[\e[92m\]\u@\[\e[96m\]\h \[\e[94m\]\w\[\e[0m\]\n$GIT_BRANCH$ '
+export PROMPT_COMMAND=prepend_with_git_branch
+export PROMPT_COMMAND=" history -a;history -c;  history -r; $PROMPT_COMMAND; "
