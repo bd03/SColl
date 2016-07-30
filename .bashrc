@@ -115,3 +115,12 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# git configuration and aliases
+git config --global user.name "<username here>"
+git config --global user.email "<mail here>"
+git config --global push.default simple
+git config --global --bool pull.rebase true
+git config --global alias.s 'status -uno'
+git config --global alias.qp '!git fetch && git stash && git pull && git stash pop'
+git config --global alias.l 'log --pretty=oneline'
