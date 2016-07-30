@@ -132,3 +132,7 @@ prepend_with_git_branch()
 PS1='\[\e[92m\]\u@\[\e[96m\]\h \[\e[94m\]\w\[\e[0m\]\n$GIT_BRANCH$ '
 export PROMPT_COMMAND=prepend_with_git_branch
 export PROMPT_COMMAND=" history -a;history -c;  history -r; $PROMPT_COMMAND; "
+
+sett(){
+   echo -en "\033]0;$1\a"
+}
